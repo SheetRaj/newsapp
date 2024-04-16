@@ -99,7 +99,7 @@ export class News extends Component {
         {this.state.loading && <Spinner />}
 
         <div className="row mx-4">
-          {!this.state.loading && this.state.articles((element) => {
+          {!this.state.loading && this.state.articles.map((element) => {
             return <div className="col md-3" key={element.url}>
               <Newsitem title={element.title ? element.title.slice(0, 44) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={new Date(element.publishedAt).toDateString()} source={element.source.name} />
             </div>
